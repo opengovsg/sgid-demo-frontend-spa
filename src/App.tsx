@@ -6,6 +6,7 @@ import { HomePage } from './pages/Home'
 import { PageLayout } from './pages/PageLayout'
 import { theme } from './theme'
 import { LoggedInPage } from './pages/LoggedIn'
+import { ErrorPage } from './pages/Error'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'logged-in',
         element: <LoggedInPage />,
+      },
+      {
+        path: 'error',
+        element: <ErrorPage />,
       },
     ],
   },

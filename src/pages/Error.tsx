@@ -11,7 +11,7 @@ import { Link } from '@opengovsg/design-system-react'
 import { useMemo } from 'react'
 import { COLOURS } from '../theme/colours'
 
-export const ErrorPage = ({ error }: { error: unknown }): JSX.Element => {
+export const ErrorPage = ({ error }: { error?: unknown }): JSX.Element => {
   const errorMessage = useMemo(() => {
     if (error instanceof Error) {
       return error.message
