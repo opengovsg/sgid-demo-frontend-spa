@@ -8,11 +8,10 @@ import {
 } from '@chakra-ui/react'
 import { Button, FormLabel, Radio } from '@opengovsg/design-system-react'
 import { useCallback, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useErrorBoundary } from 'react-error-boundary'
 import sgidLogo from '../assets/logo.png'
 import singpassLogo from '../assets/singpass.svg'
 import { COLOURS } from '../theme/colours'
-import { useErrorBoundary } from 'react-error-boundary'
 
 enum IceCreamOptions {
   Vanilla = 'Vanilla',
@@ -32,14 +31,13 @@ export const HomePage = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false)
 
   // Button click handler
-  const navigate = useNavigate()
   const { showBoundary } = useErrorBoundary()
   const handleLoginBtnClick = useCallback(() => {
     setIsLoading(true)
     fetch(`/api/auth-url?icecream=${iceCream}`)
       .then(async (r) => await r.json())
       .then(({ url }) => {
-        navigate(url)
+        window.location.href = url
       })
       .catch((e: unknown) => {
         setIsLoading(false)
@@ -52,7 +50,7 @@ export const HomePage = (): JSX.Element => {
           )
         )
       })
-  }, [iceCream, navigate, showBoundary])
+  }, [iceCream, showBoundary])
 
   return (
     <VStack spacing="48px">
