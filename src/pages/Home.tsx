@@ -3,6 +3,7 @@ import {
   FormControl,
   HStack,
   Image,
+  Spinner,
   Stack,
   VStack,
 } from '@chakra-ui/react'
@@ -12,6 +13,8 @@ import { useErrorBoundary } from 'react-error-boundary'
 import sgidLogo from '../assets/logo.png'
 import singpassLogo from '../assets/singpass.svg'
 import { COLOURS } from '../theme/colours'
+import { useAuth } from '../hooks/useAuth'
+import { Navigate } from 'react-router-dom'
 
 enum IceCreamOptions {
   Vanilla = 'Vanilla',
@@ -52,6 +55,14 @@ export const HomePage = (): JSX.Element => {
       })
   }, [iceCream, showBoundary])
 
+  const { user, isLoading: isUserLoading } = useAuth()
+
+  if (isUserLoading) {
+    return <Spinner />
+  }
+  if (user !== null) {
+    return <Navigate to="/logged-in" />
+  }
   return (
     <VStack spacing="48px">
       <HStack spacing="48px" justifyContent={'center'}>
