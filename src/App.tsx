@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { HomePage } from './pages/Home'
 import { PageLayout } from './pages/PageLayout'
 import { theme } from './theme'
+import { LoggedInPage } from './pages/LoggedIn'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: 'logged-in',
+        element: <LoggedInPage />,
       },
     ],
   },
