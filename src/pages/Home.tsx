@@ -87,7 +87,7 @@ export const HomePage = (): JSX.Element => {
         >
           <Stack spacing="0.5rem">
             {Object.values(IceCreamOptions).map((o, idx) => (
-              <Radio key={idx} value={o}>
+              <Radio allowDeselect={false} key={idx} value={o}>
                 {o}
               </Radio>
             ))}
