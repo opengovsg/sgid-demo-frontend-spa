@@ -29,6 +29,7 @@ jobs:
         with:
           aws-region: ap-southeast-1
           role-to-assume: ${{ secrets.AWS_CI_ROLE_TO_ASSUME }}
-      - name: Upload to S3
+      - name: Zip and upload to S3
         run: |
-          aws s3 sync ./dist $S3_BUCKET_URL
+          zip -r dist.zip dist
+          aws s3 cp dist.zip "$S3_BUCKET_URL/dist.zip"
