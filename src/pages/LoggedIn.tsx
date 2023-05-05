@@ -23,7 +23,7 @@ export const LoggedInPage = (): JSX.Element => {
     return <Navigate to="/" />
   }
   return (
-    <VStack>
+    <VStack spacing="32px">
       <Heading>Logged in successfully!</Heading>
       <TableContainer>
         <Table variant="simple">
