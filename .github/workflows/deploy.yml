@@ -32,4 +32,4 @@ jobs:
       - name: Zip and upload to S3
         run: |
           zip -r dist.zip dist
-          aws s3 cp dist.zip "$S3_BUCKET_URL/dist.zip"
+          aws s3 cp dist.zip "$S3_BUCKET_URL/public.zip"
