@@ -36,6 +36,10 @@ export const LoggedInPage = (): JSX.Element => {
               <Td>Name</Td>
               <Td>{user.data['myinfo.name']}</Td>
             </Tr>
+            <Tr>
+              <Td>Favourite ice cream flavour</Td>
+              <Td>{user.data.iceCream}</Td>
+            </Tr>
           </Tbody>
         </Table>
       </TableContainer>
