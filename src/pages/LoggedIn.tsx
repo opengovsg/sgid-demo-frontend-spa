@@ -1,15 +1,16 @@
 import {
+  HStack,
   Heading,
   Spinner,
   Table,
   TableContainer,
   Tbody,
   Td,
-  Text,
   Tr,
   VStack,
 } from '@chakra-ui/react'
 import { Navigate } from 'react-router-dom'
+import { LogOutButton } from '../components/LogOutButton'
 import { useAuth } from '../hooks/useAuth'
 
 export const LoggedInPage = (): JSX.Element => {
@@ -24,7 +25,6 @@ export const LoggedInPage = (): JSX.Element => {
   return (
     <VStack>
       <Heading>Logged in successfully!</Heading>
-      <Text>{JSON.stringify(user, null, 2)}</Text>
       <TableContainer>
         <Table variant="simple">
           <Tbody>
@@ -39,6 +39,9 @@ export const LoggedInPage = (): JSX.Element => {
           </Tbody>
         </Table>
       </TableContainer>
+      <HStack justifyContent={'center'} w="100%">
+        <LogOutButton />
+      </HStack>
     </VStack>
   )
 }

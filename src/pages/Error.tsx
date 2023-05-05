@@ -7,9 +7,8 @@ import {
   UnorderedList,
   VStack,
 } from '@chakra-ui/react'
-import { Link } from '@opengovsg/design-system-react'
 import { useMemo } from 'react'
-import { COLOURS } from '../theme/colours'
+import { LogOutButton } from '../components/LogOutButton'
 
 export const ErrorPage = ({ error }: { error?: unknown }): JSX.Element => {
   const errorMessage = useMemo(() => {
@@ -36,9 +35,7 @@ export const ErrorPage = ({ error }: { error?: unknown }): JSX.Element => {
         </UnorderedList>
       </Box>
       <HStack justifyContent={'center'} w="100%">
-        <Link href="/" color={COLOURS.PRIMARY}>
-          Back to home
-        </Link>
+        <LogOutButton buttonText="Back to home" />
       </HStack>
     </VStack>
   )
