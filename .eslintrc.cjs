@@ -10,6 +10,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   overrides: [],
+  ignorePatterns: ['vite.config.ts'],
   parserOptions: {
     project: 'tsconfig.json',
     ecmaVersion: 'latest',
