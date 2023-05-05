@@ -1,1 +1,6 @@
-export type UserInfo = Record<string, string>
+export interface UserInfo {
+  sub: string
+  data: {
+    'myinfo.name': string
+  }
+}
