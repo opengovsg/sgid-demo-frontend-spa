@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - release
+      - develop
 
 permissions:
   id-token: write
