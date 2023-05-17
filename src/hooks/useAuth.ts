@@ -11,7 +11,7 @@ export const useAuth = (): UseAuth => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/api/userinfo')
+    fetch(`${String(import.meta.env.VITE_BACKEND_URL)}/api/userinfo`)
       .then(async (r) => await r.json())
       .then((data) => {
         setIsLoading(false)
