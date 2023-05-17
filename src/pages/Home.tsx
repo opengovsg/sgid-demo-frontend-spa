@@ -40,7 +40,8 @@ export const HomePage = (): JSX.Element => {
     fetch(
       `${String(
         import.meta.env.VITE_BACKEND_URL
-      )}/api/auth-url?icecream=${iceCream}`
+      )}/api/auth-url?icecream=${iceCream}`,
+      { credentials: 'include' }
     )
       .then(async (r) => await r.json())
       .then(({ url }) => {

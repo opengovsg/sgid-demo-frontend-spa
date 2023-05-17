@@ -15,7 +15,7 @@ export const LogOutButton = ({
   const navigate = useNavigate()
   const handleLogout = useCallback(() => {
     setIsLoading(true)
-    fetch('/api/logout')
+    fetch('/api/logout', { credentials: 'include' })
       .then(() => {
         navigate('/')
       })
