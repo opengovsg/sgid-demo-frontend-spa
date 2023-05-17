@@ -17,13 +17,5 @@ export default defineConfig({
   },
   server: {
     host: 'localhost',
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5001',
-        changeOrigin: true,
-        secure: false,
-        timeout: 10000,
-      },
-    },
   },
 })
