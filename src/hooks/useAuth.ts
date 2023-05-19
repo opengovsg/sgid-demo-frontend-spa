@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { type UserInfo } from '../types'
+import { VITE_BACKEND_URL } from '../config/constants'
 
 interface UseAuth {
   isLoading: boolean
@@ -11,7 +12,7 @@ export const useAuth = (): UseAuth => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${String(import.meta.env.VITE_BACKEND_URL)}/api/userinfo`, {
+    fetch(`${VITE_BACKEND_URL}/api/userinfo`, {
       credentials: 'include',
     })
       .then(async (r) => await r.json())

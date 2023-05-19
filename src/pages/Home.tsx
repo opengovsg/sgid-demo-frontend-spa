@@ -15,6 +15,7 @@ import singpassLogo from '../assets/singpass.svg'
 import { COLOURS } from '../theme/colours'
 import { useAuth } from '../hooks/useAuth'
 import { Navigate } from 'react-router-dom'
+import { VITE_BACKEND_URL } from '../config/constants'
 
 enum IceCreamOptions {
   Vanilla = 'Vanilla',
@@ -37,12 +38,9 @@ export const HomePage = (): JSX.Element => {
   const { showBoundary } = useErrorBoundary()
   const handleLoginBtnClick = useCallback(() => {
     setIsLoading(true)
-    fetch(
-      `${String(
-        import.meta.env.VITE_BACKEND_URL
-      )}/api/auth-url?icecream=${iceCream}`,
-      { credentials: 'include' }
-    )
+    fetch(`${VITE_BACKEND_URL}/api/auth-url?icecream=${iceCream}`, {
+      credentials: 'include',
+    })
       .then(async (r) => await r.json())
       .then(({ url }) => {
         window.location.href = url

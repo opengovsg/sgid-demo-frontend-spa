@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react'
 import { COLOURS } from '../theme/colours'
 import { useErrorBoundary } from 'react-error-boundary'
 import { useNavigate } from 'react-router-dom'
+import { VITE_BACKEND_URL } from '../config/constants'
 
 export const LogOutButton = ({
   buttonText = 'Log out and try again',
@@ -15,7 +16,7 @@ export const LogOutButton = ({
   const navigate = useNavigate()
   const handleLogout = useCallback(() => {
     setIsLoading(true)
-    fetch(`${String(import.meta.env.VITE_BACKEND_URL)}/api/logout`, {
+    fetch(`${VITE_BACKEND_URL}/api/logout`, {
       credentials: 'include',
     })
       .then(() => {
